@@ -2,6 +2,9 @@ package com.google.sps.servlets;
 import twitter4j.Status;
 import twitter4j.TwitterException;
 
+import com.google.gson.Gson;
+import com.google.sps.Twitterer;
+
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.List;
@@ -17,21 +20,20 @@ public class TwitterBotServlet extends HttpServlet {
   
   static final long serialVersionUID = 0;
   private static PrintStream consolePrint;
-  private Twitterer bigBird = new Twitterer(consolePrint);;
+  private Twitterer bigBird = new Twitterer(consolePrint);
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
     List<Status> tweets;
+    response.setContentType("application/json");
+    String hashtag = request.getParameter("hashtag");
 
     try {
-      response.setContentType("application/json");
-      String hashtag = request.getParameter("hashtag");
       tweets = bigBird.saQuery(hashtag);
-
-      // need to convert tweets to json
-
-      response.getWriter().write(tweets);
-
+      Gson gson = new Gson();
+      String json = gson.toJson(tweets);
+      response.getWriter().write(json);
     }  catch (TwitterException e) {
       e.printStackTrace();
     }
