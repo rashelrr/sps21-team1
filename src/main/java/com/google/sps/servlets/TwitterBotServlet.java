@@ -2,10 +2,9 @@ package com.google.sps.servlets;
 import twitter4j.TwitterException;
 
 import com.google.gson.Gson;
-import com.google.sps.Twitterer;
+import com.google.sps.TwitterBot;
 
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +13,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Handles requests sent to the /twitter-bot URL. Try running a server and navigating to /twitter-bot! */
+/** Handles requests sent to the /twitter-bot URL **/
 @WebServlet("/twitter-bot")
 public class TwitterBotServlet extends HttpServlet {
   
   static final long serialVersionUID = 0;
-  private static PrintStream consolePrint;
-  private Twitterer bigBird = new Twitterer(consolePrint);
+  private TwitterBot bigBird = new TwitterBot();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -30,7 +28,7 @@ public class TwitterBotServlet extends HttpServlet {
     String hashtag = request.getParameter("hashtag");
 
     try {
-        tweets = bigBird.saQuery(hashtag);
+        tweets = bigBird.getTweets(hashtag);
         Gson gson = new Gson();
         String json = gson.toJson(tweets);
         response.getWriter().write(json);
