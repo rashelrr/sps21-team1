@@ -6,89 +6,85 @@
    <link rel="stylesheet" href="style.css">
    <script src="script.js"></script>
  </head>
- <body>
-   <div id="MainSection">
-     <center><h1>Main Section</h1></center>
-    <header>
-        <img src="https://images.app.goo.gl/cXw6Kb6GyrxTx2RZ9" width="50%" class="center">
-    </header>
-        <h2>Movement Name</h2>
-        <p> 
-            Information about the movement 
-        </p>
-        <a href="https://www.gofundme.com/f/support-aapi-community-fund" target="_blank">Click here to Donate</a>
-        
-   </div>
- 
- 
-   <div id="TwitterBot">
-     <center><h1>Twitter Bot</h1></center>
-     <center>
-<p>
-"Click on the image below:"
-</p>
-<button type = "submit" name = "learn" value = "myimage" onclick="getBot();git">
- <img src="https://utilitypeopleuk.com/wp-content/uploads/2017/06/twitter-icon-circle-blue-logo-preview.png" />
-</button></center>
-     <header>
-         <!-- It adds a profile picture -->
-    <img src=https://s3.amazonaws.com/caamedia/wp-content/uploads/2017/03/JivanAtmanBest-700x450.jpg alt="Eren Yeager's profile picture" class="profile-picture">
-  <div class="profile-name">
-    <!-- It adds a profile name and handle -->
-    <h3>Eren Yeager</h3>
-    <h4>@ErenYeager</h4>
-  </div>
-   <!-- It adds a follow button, which says 'Thank you for following me.' It does this when it is clicked on. -->
-  <!--<div class="follow-button">
-     <button type="button" onclick="alert('Thank you for following me.')">Follow</button>
-  </div> -->
-</header>
-<div id="inner">
-  <!-- It adds a tweet with a time and date. -->
-  <p>The attacks on Asian-Americans are the most heartbreaking thing. These attacks need to be stopped. We need to continue to speak out against these inhumane actions because Asians are not a virus, but hate is.</p>
-  <span class="date">2:32 P.M. - 18 March 2021</span>
-  <hr>
-</div>
-<footer>
-<!-- It adds how many likes and retweets this person got for their post. -->
-  <div class="tweetstats">
-    <div class="Retweets">
-      <strong>256</strong> Retweets
+
+ <body onload="getBot();">
+    <div id="MainSection">
+      <center><h1>Main Section</h1></center>
+      <header>
+          <img src="https://images.app.goo.gl/cXw6Kb6GyrxTx2RZ9" width="50%" class="center">
+      </header>
+          <h2>Movement Name</h2>
+          <p> 
+              Information about the movement 
+          </p>
+          <a href="https://www.gofundme.com/f/support-aapi-community-fund" target="_blank">Click here to Donate</a>      
     </div>
-    <div class="likes">
-      <strong>590</strong> Likes
-    </div>
-  </div>
-  <!-- It adds like, share, and retweeting buttons and it shows messages, when it is clicked on.  -->
-  <!-- <div class="followerresponse">
-   <button type="button" onclick="alert('Thank you for sharing this post.')">Share!</button>
-            <button type="retweeting" onclick="alert('Thank you for retweeting this post.')">Retweet!</button>
-            <button type="like" onclick="alert('Thank you for liking this post.')">Like!</button>
-  </div> -->
-</footer>
-</div>
- 
-   <div id="Video">
-     <h1>Video</h1>
-     <video width="50%" height="auto" autoplay> <source src="https://youtu.be/hgX5jKF5n5U" </video>
-   </div>
- 
-   <div id="AdditionalResources">
-     <h1>Additional Resources</h1>
-        <p> These are some additional resources: </p>
-        <a href="https://www.standagainsthatred.org/resources" target="_blank">Visit the standagainsthatred website!</a>
-        <br>
-        <a href="https://stopaapihate.org/" target="_blank">Visit the stopaapihate website!</a> 
-        <br>
-        <a href="https://www.ihollaback.org/bystanderintervention/" target="_blank">Visit the ihollaback website!</a>
-        <br>
-        <a href="https://www.capeusa.org/" target="_blank">Visit the capeusa website!</a>
-        <br>
-        <a href="https://www.asianmhc.org/apisaa" target="_blank">Visit the asianmhc website!</a> 
     
+    <div id="TwitterBot">
+      <center><h1>Twitter Bot</h1></center>
+      <div id="bot"></div>
+      <!--<center>
+        <p>"Click on the image below:"</p>
+        <button type = "submit" name = "learn" value = "myimage" onclick="getBot();">
+          <img src="https://utilitypeopleuk.com/wp-content/uploads/2017/06/twitter-icon-circle-blue-logo-preview.png" />
+        </button>
+      </center>-->
+      <header>
+         <!-- It adds a profile picture -->
+        <img src=https://s3.amazonaws.com/caamedia/wp-content/uploads/2017/03/JivanAtmanBest-700x450.jpg alt="Eren Yeager's profile picture" class="profile-picture">
+        <div class="profile-name">
+          <!-- It adds a profile name and handle -->
+          <h3>Eren Yeager</h3>
+          <h4>@ErenYeager</h4>
+        </div>
+        <!-- It adds a follow button, which says 'Thank you for following me.' It does this when it is clicked on. -->
+        <!--<div class="follow-button">
+          <button type="button" onclick="alert('Thank you for following me.')">Follow</button>
+        </div> -->
+      </header>
+      <div id="inner">
+        <!-- It adds a tweet with a time and date. -->
+        <p>The attacks on Asian-Americans are the most heartbreaking thing. These attacks need to be stopped. We need to continue to speak out against these inhumane actions because Asians are not a virus, but hate is.</p>
+        <span class="date">2:32 P.M. - 18 March 2021</span>
+        <hr>
+      </div>
+      <footer>
+      <!-- It adds how many likes and retweets this person got for their post. -->
+        <div class="tweetstats">
+          <div class="Retweets">
+            <strong>256</strong> Retweets
+          </div>
+          <div class="likes">
+            <strong>590</strong> Likes
+          </div>
+        </div>
+        <!-- It adds like, share, and retweeting buttons and it shows messages, when it is clicked on.  -->
+        <!-- <div class="followerresponse">
+        <button type="button" onclick="alert('Thank you for sharing this post.')">Share!</button>
+                  <button type="retweeting" onclick="alert('Thank you for retweeting this post.')">Retweet!</button>
+                  <button type="like" onclick="alert('Thank you for liking this post.')">Like!</button>
+        </div> -->
+      </footer>
     </div>
+ 
+    <div id="Video">
+      <h1>Video</h1>
+      <video width="50%" height="auto" autoplay> <source src="https://youtu.be/hgX5jKF5n5U" </video>
+    </div>
+  
+    <div id="AdditionalResources">
+      <h1>Additional Resources</h1>
+          <p> These are some additional resources: </p>
+          <a href="https://www.standagainsthatred.org/resources" target="_blank">Visit the standagainsthatred website!</a>
+          <br>
+          <a href="https://stopaapihate.org/" target="_blank">Visit the stopaapihate website!</a> 
+          <br>
+          <a href="https://www.ihollaback.org/bystanderintervention/" target="_blank">Visit the ihollaback website!</a>
+          <br>
+          <a href="https://www.capeusa.org/" target="_blank">Visit the capeusa website!</a>
+          <br>
+          <a href="https://www.asianmhc.org/apisaa" target="_blank">Visit the asianmhc website!</a> 
+      </div>
   
  </body>
 </html>
-
-
