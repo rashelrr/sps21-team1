@@ -6,7 +6,7 @@ import com.google.sps.TwitterBot;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +23,7 @@ public class TwitterBotServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     
-    List<ArrayList<String>> tweets;
+    LinkedHashMap<String, ArrayList<String>> tweets;
     response.setContentType("application/json");
     String hashtag = request.getParameter("hashtag");
 
