@@ -58,4 +58,21 @@ body {
     background: transparent;
   }
 
+.center{
+    padding: 5px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.item{
+    flex-basis: auto;
+}
+
 
