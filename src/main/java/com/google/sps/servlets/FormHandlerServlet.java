@@ -18,7 +18,6 @@ public class FormHandlerServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // Get the value entered in the form.
-    String name = Jsoup.clean(request.getParameter("name"), Whitelist.none());
     String description = Jsoup.clean(request.getParameter("description"), Whitelist.none());
     String hashTag = Jsoup.clean(request.getParameter("hashTag"), Whitelist.none());
     
@@ -28,9 +27,9 @@ public class FormHandlerServlet extends HttpServlet {
     
     FullEntity taskEntity =
     Entity.newBuilder(keyFactory.newKey())
-        .set("name", name)
-        .set("description", description)
-        .set("hashTag", hashTag)
+        .set()
+        .set()
+        .set()
         .build();
     datastore.put(taskEntity); }
   } */
