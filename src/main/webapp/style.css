@@ -2,6 +2,13 @@
 body {
     font-family: Arial, sans-serif;
   }
+
+#content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 650px;
+}
+
   header, footer {
     display: flex;
     flex-direction: row;
@@ -57,5 +64,61 @@ body {
     border: 0;
     background: transparent;
   }
+
+.center{
+    padding: 5px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+.item{
+    flex-basis: auto;
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    color: white;
+    background-color: black;
+    border: 1px solid #f1f1f1;
+    border-radius: 35px;
+    transition: .2s;
+}
+
+/*Form */
+input[type=text], select, textarea {
+  width: 100%; 
+  padding: 12px;  
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; 
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
 
 
