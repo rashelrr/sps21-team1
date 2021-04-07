@@ -1,6 +1,8 @@
 /* The styling following are various style features for the webpage */
 body {
     font-family: Arial, sans-serif;
+    background-color: rgb(28, 191, 255);
+    color: white;
   }
   header, footer {
     display: flex;
@@ -66,13 +68,48 @@ body {
     text-align: center;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
+.movementImage{
+    padding: 5px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 400px;
+    width: auto;
 }
 
-.item{
+#MainSection{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    
+}
+
+#item{
     flex-basis: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+button{
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 
