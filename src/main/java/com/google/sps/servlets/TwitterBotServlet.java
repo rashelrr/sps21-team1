@@ -34,7 +34,7 @@ public class TwitterBotServlet extends HttpServlet {
         response.getWriter().write(json);
     }  catch (TwitterException e) {
         e.printStackTrace();
-    }
-        
+    }    
   }
+
 }

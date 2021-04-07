@@ -8,6 +8,12 @@ import twitter4j.TwitterFactory;
 import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.TwitterException;
 
+import com.google.cloud.datastore.Datastore;
+import com.google.cloud.datastore.DatastoreOptions;
+import com.google.cloud.datastore.Entity;
+import com.google.cloud.datastore.Key;
+import com.google.cloud.datastore.KeyFactory;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -15,13 +21,26 @@ public class TwitterBot {
 
       private Twitter twitter;
       
-      private static final String TWITTER_CONSUMER_KEY = "*****";
-      private static final String TWITTER_CONSUMER_SECRET = "******";
-      private static final String TWITTER_ACCESS_TOKEN = "*****";
-      private static final String TWITTER_ACCESS_TOKEN_SECRET = "*****";
+      private static String TWITTER_CONSUMER_KEY = "*****";
+      private static String TWITTER_CONSUMER_SECRET = "******";
+      private static String TWITTER_ACCESS_TOKEN = "*****";
+      private static String TWITTER_ACCESS_TOKEN_SECRET = "*****";
       
       public TwitterBot()
       {
+         // Creates Twitter API keys
+         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+
+         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Setting");
+         Key taskKey = keyFactory.newKey("5634161670881280");         
+         Entity entity = datastore.get(taskKey);
+
+         TWITTER_CONSUMER_KEY = entity.getString("TWITTER_CONSUMER_KEY");
+         TWITTER_CONSUMER_SECRET = entity.getString("TWITTER_CONSUMER_SECRET");
+         TWITTER_ACCESS_TOKEN = entity.getString("TWITTER_ACCESS_TOKEN");
+         TWITTER_ACCESS_TOKEN_SECRET = entity.getString("TWITTER_ACCESS_TOKEN_SECRET");
+
+
          // Makes an instance of Twitter - this is re-useable and thread safe.
          // Connects to Twitter and performs authorizations.
          ConfigurationBuilder cb = new ConfigurationBuilder();
@@ -32,7 +51,34 @@ public class TwitterBot {
          .setOAuthAccessTokenSecret(TWITTER_ACCESS_TOKEN_SECRET);
          TwitterFactory tf = new TwitterFactory(cb.build());
          twitter = tf.getInstance();
-      }    
+
+      }   
+      
+      // Creates Mock tweet 
+      public LinkedHashMap<String, ArrayList<String>> getMockTweet() {
+         LinkedHashMap<String, ArrayList<String>> tweets = new LinkedHashMap<String, ArrayList<String>>();
+         ArrayList<String> usernames = new ArrayList<String>();
+         ArrayList<String> messages = new ArrayList<String>();
+         ArrayList<String> retweetCounts = new ArrayList<String>();
+         ArrayList<String> favCounts = new ArrayList<String>();
+
+         usernames.add("John Smith");
+         messages.add("This is a tweet message!");
+         retweetCounts.add("35");
+         favCounts.add("209");
+
+         usernames.add("Sally Smith");
+         messages.add("Seashells by the seashore");
+         retweetCounts.add("8000");
+         favCounts.add("10000");
+
+         tweets.put("usernames", usernames);
+         tweets.put("messages", messages);
+         tweets.put("retweetCounts", retweetCounts);
+         tweets.put("favCounts", favCounts);
+
+         return tweets;
+      }
 
       // Returns the most popular tweets with the hashtag
       public LinkedHashMap<String, ArrayList<String>> getTweets (String hashtag) throws TwitterException
@@ -40,34 +86,12 @@ public class TwitterBot {
          LinkedHashMap<String, ArrayList<String>> tweets = new LinkedHashMap<String, ArrayList<String>>();
          
          if (TWITTER_CONSUMER_KEY.equals("*****")) {
-
-            // Create Mock tweet for testing without API keys
-            ArrayList<String> usernames = new ArrayList<String>();
-            ArrayList<String> messages = new ArrayList<String>();
-            ArrayList<String> retweetCounts = new ArrayList<String>();
-            ArrayList<String> favCounts = new ArrayList<String>();
-
-            usernames.add("John Smith");
-            messages.add("This is a tweet message!");
-            retweetCounts.add("35");
-            favCounts.add("209");
-
-            usernames.add("Sally Smith");
-            messages.add("Seashells by the seashore");
-            retweetCounts.add("8000");
-            favCounts.add("10000");
-
-            tweets.put("usernames", usernames);
-            tweets.put("messages", messages);
-            tweets.put("retweetCounts", retweetCounts);
-            tweets.put("favCounts", favCounts);
-
-            return tweets;
-
+            return getMockTweet(); // If correct keys are not present, creates mock tweet
          } else {
             Query query = new Query(hashtag);
             query.setSince("2016-12-1");
             query.setLang("en");
+            query.setCount(5);
             query.setResultType(Query.POPULAR);
 
             try {
