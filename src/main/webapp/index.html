@@ -6,7 +6,7 @@
    <link rel="stylesheet" href="style.css">
    <script src="script.js"></script>
  </head>
- <body>
+ <body onload="getBot();"> <!-- calls function when page loads-->
    <div id="MainSection">
      <center><h1>Main Section</h1></center>
     <div id ="container"
@@ -26,11 +26,12 @@
  
    <div id="TwitterBot">
      <center><h1>Twitter Bot</h1></center>
+     <div id="bot"></div> <!-- backend: where tweets will load in-->
      <center>
 <p>
 "Click on the image below:"
 </p>
-<button type = "submit" name = "learn" value = "myimage" onclick="getBot();git">
+<button type = "submit" name = "learn" value = "myimage" onclick="getBot();"> <!-- should remove getbot()-->
  <img src="https://utilitypeopleuk.com/wp-content/uploads/2017/06/twitter-icon-circle-blue-logo-preview.png" />
 </button></center>
      <header>
@@ -96,5 +97,3 @@ allowfullscreen></iframe>
   
  </body>
 </html>
-
-
