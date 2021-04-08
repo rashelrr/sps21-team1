@@ -6,22 +6,35 @@
    <link rel="stylesheet" href="style.css">
    <script src="script.js"></script>
  </head>
- <body onload="getBot();"> <!-- calls function when page loads-->
+
+ <body>
+ 
+    <div class="container">
+        <ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="form.html">Enter a New Movement</a></li>
+        </ul>
+    </div>
+   
+    <body onload="getBot();"> <!-- calls function when page loads-->
+      
+        <center><h1>Main Section</h1></center>
+
    <div id="MainSection">
-     <center><h1>Main Section</h1></center>
-    <div id ="container"
+    <div id ="container">
         <header>
-        <img src="https://thumbnails.texastribune.org/Am1QC9AZZi14AVBBOrvAA6h3_QQ=/1550x1038/smart/filters:format(webp):quality(75)/https://static.texastribune.org/media/files/2e5015d02af42b359c3ed0084b2704e2/Stop%20Asian%20Hate%20Protest%20REUTERS%20TT.jpg" width="50%" class="center">
-    </header>
-        <div id="item">
+            <img src="https://thumbnails.texastribune.org/Am1QC9AZZi14AVBBOrvAA6h3_QQ=/1550x1038/smart/filters:format(webp):quality(75)/https://static.texastribune.org/media/files/2e5015d02af42b359c3ed0084b2704e2/Stop%20Asian%20Hate%20Protest%20REUTERS%20TT.jpg" class="movementImage">
+        </header>
+    </div>
+    <div id="item">
         <h2>Movement Name</h2>
         <p> 
             Information about the movement 
         </p>
-        <a href="https://www.gofundme.com/f/support-aapi-community-fund" target="_blank">Click here to Donate</a>
+        <a href="https://www.gofundme.com/f/support-aapi-community-fund"><button>Click Here to Donate!</button></a>
      </div>
     </div> 
-   </div>
+   
  
  
    <div id="TwitterBot">
