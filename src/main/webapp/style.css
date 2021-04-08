@@ -1,7 +1,7 @@
 /* The styling following are various style features for the webpage */
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(28, 191, 255);
+    background-color: black;
     color: white;
   }
   header, footer {
@@ -112,4 +112,44 @@ button{
     cursor: pointer;
 }
 
+.centered-contact{ /* used to center the form page information */
+    padding: 5px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Form page CSS */
+input[type=text],textarea {
+  width: 100%; 
+  padding: 12px;  
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+}
+
+input[type=url] {
+  width: 100%; 
+  padding: 12px;  
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+}
+
+
+
+/* assigning a color to the submit button to make it more appealing */
+input[type=submit] {
+  background-color: blue;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #1bb8e7;
+}
 
