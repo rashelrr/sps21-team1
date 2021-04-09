@@ -1,7 +1,7 @@
 /* The styling following are various style features for the webpage */
 body {
     font-family: Arial, sans-serif;
-    background-color: rgb(28, 191, 255);
+    background-color: black;
     color: white;
   }
 
@@ -130,21 +130,52 @@ button{
     border-radius: 35px;
     transition: .2s;
 }
+/* donation button CSS */
+.button1{ 
+    background-color: black;
+    border: 2px solid rgb(6, 48, 233);
+    border-radius: 5px;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button1:hover {
+  background-color: rgb(6, 48, 233);
+}
 
-/*Form */
-input[type=text], select, textarea {
+.centered-contact{ /* used to center the form page information */
+    padding: 5px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Form page CSS */
+input[type=text],textarea {
   width: 100%; 
   padding: 12px;  
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; 
   box-sizing: border-box; 
   margin-top: 6px; 
   margin-bottom: 16px; 
 }
 
-/* Style the submit button with a specific background color etc */
+input[type=url] {
+  width: 100%; 
+  padding: 12px;  
+  box-sizing: border-box; 
+  margin-top: 6px; 
+  margin-bottom: 16px; 
+}
+
+/* assigning a color to the submit button to make it look more appealing */
 input[type=submit] {
-  background-color: #4CAF50;
+  background-color: blue;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -152,10 +183,41 @@ input[type=submit] {
   cursor: pointer;
 }
 
-/* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #1bb8e7;
 }
 
+/*formatting for the navigation bar */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
 
+/*formatting for the navigation bar */
+li {
+  float: left;
+}
+/*formatting for the navigation bar */
+li {
+  border-right: 1px solid rgb(54, 54, 54);
+}
+/*formatting for the navigation bar */
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/*formatting for the navigation bar */
+li a:hover {
+  background-color:blue;
+}
 
+/*making all of the links on our index.html page white instead of purple */
+a:any-link {
+   color:white;
+}

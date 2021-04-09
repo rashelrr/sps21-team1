@@ -2,13 +2,25 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Insert a Movement</title>
+
+    <title> New Movement</title>
+
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
     <body>
-            
+
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="form.html">Enter a New Movement</a></li>
+                <li><a href="SAH.html">Stop Asian Hate</a></li>
+            </ul>
+        </div>    
         <div id="content">
+            <h1 class="centered-contact">Enter A New Movement</h1>
+            <div class="centered-contact">
+
             <form action="/form-handler" method="POST">
             <label for="name">Name of Movement</label>
             <input id="name" name="name" type="text" placeholder="Movement Name" />
@@ -34,6 +46,9 @@
           <br/>
             <input type="submit" class="btn" /> 
     </form>
+
+        </div>
+
     </div>
 
 </body>
