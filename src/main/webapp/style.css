@@ -112,6 +112,25 @@ button{
     cursor: pointer;
 }
 
+/* donation button CSS */
+.button1{ 
+    background-color: black;
+    border: 2px solid rgb(6, 48, 233);
+    border-radius: 5px;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1:hover {
+  background-color: rgb(6, 48, 233);
+}
+
 .centered-contact{ /* used to center the form page information */
     padding: 5px 0;
     flex-direction: column;
@@ -137,9 +156,7 @@ input[type=url] {
   margin-bottom: 16px; 
 }
 
-
-
-/* assigning a color to the submit button to make it more appealing */
+/* assigning a color to the submit button to make it look more appealing */
 input[type=submit] {
   background-color: blue;
   color: white;
@@ -153,3 +170,37 @@ input[type=submit]:hover {
   background-color: #1bb8e7;
 }
 
+/*formatting for the navigation bar */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+/*formatting for the navigation bar */
+li {
+  float: left;
+}
+/*formatting for the navigation bar */
+li {
+  border-right: 1px solid rgb(54, 54, 54);
+}
+/*formatting for the navigation bar */
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/*formatting for the navigation bar */
+li a:hover {
+  background-color:blue;
+}
+
+/*making all of the links on our index.html page white instead of purple */
+a:any-link {
+   color:white;
+}
