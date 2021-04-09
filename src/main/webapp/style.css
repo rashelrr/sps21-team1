@@ -4,6 +4,13 @@ body {
     background-color: black;
     color: white;
   }
+
+#content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 650px;
+}
+
   header, footer {
     display: flex;
     flex-direction: row;
@@ -112,6 +119,17 @@ button{
     cursor: pointer;
 }
 
+.btn{
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    border: none;
+    color: white;
+    background-color: black;
+    border: 1px solid #f1f1f1;
+    border-radius: 35px;
+    transition: .2s;
+}
 /* donation button CSS */
 .button1{ 
     background-color: black;
@@ -126,7 +144,6 @@ button{
     margin: 4px 2px;
     cursor: pointer;
 }
-
 .button1:hover {
   background-color: rgb(6, 48, 233);
 }
