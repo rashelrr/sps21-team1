@@ -16,30 +16,21 @@ import com.google.cloud.datastore.KeyFactory;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public class TwitterBot {
 
       private Twitter twitter;
       
-      private static String TWITTER_CONSUMER_KEY = "*****";
-      private static String TWITTER_CONSUMER_SECRET = "******";
-      private static String TWITTER_ACCESS_TOKEN = "*****";
-      private static String TWITTER_ACCESS_TOKEN_SECRET = "*****";
+      private static String TWITTER_CONSUMER_KEY = "***";
+      private static String TWITTER_CONSUMER_SECRET = "***";
+      private static String TWITTER_ACCESS_TOKEN = "***";
+      private static String TWITTER_ACCESS_TOKEN_SECRET = "***";
       
+
       public TwitterBot()
       {
-         // Creates Twitter API keys
-         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-
-         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Setting");
-         Key taskKey = keyFactory.newKey("5634161670881280");         
-         Entity entity = datastore.get(taskKey);
-
-         TWITTER_CONSUMER_KEY = entity.getString("TWITTER_CONSUMER_KEY");
-         TWITTER_CONSUMER_SECRET = entity.getString("TWITTER_CONSUMER_SECRET");
-         TWITTER_ACCESS_TOKEN = entity.getString("TWITTER_ACCESS_TOKEN");
-         TWITTER_ACCESS_TOKEN_SECRET = entity.getString("TWITTER_ACCESS_TOKEN_SECRET");
-
+         createKeys();
 
          // Makes an instance of Twitter - this is re-useable and thread safe.
          // Connects to Twitter and performs authorizations.
@@ -53,40 +44,20 @@ public class TwitterBot {
          twitter = tf.getInstance();
 
       }   
-      
-      // Creates Mock tweet 
-      public LinkedHashMap<String, ArrayList<String>> getMockTweet() {
-         LinkedHashMap<String, ArrayList<String>> tweets = new LinkedHashMap<String, ArrayList<String>>();
-         ArrayList<String> usernames = new ArrayList<String>();
-         ArrayList<String> messages = new ArrayList<String>();
-         ArrayList<String> retweetCounts = new ArrayList<String>();
-         ArrayList<String> favCounts = new ArrayList<String>();
 
-         usernames.add("John Smith");
-         messages.add("This is a tweet message!");
-         retweetCounts.add("35");
-         favCounts.add("209");
-
-         usernames.add("Sally Smith");
-         messages.add("Seashells by the seashore");
-         retweetCounts.add("8000");
-         favCounts.add("10000");
-
-         tweets.put("usernames", usernames);
-         tweets.put("messages", messages);
-         tweets.put("retweetCounts", retweetCounts);
-         tweets.put("favCounts", favCounts);
-
-         return tweets;
-      }
 
       // Returns the most popular tweets with the hashtag
-      public LinkedHashMap<String, ArrayList<String>> getTweets (String hashtag) throws TwitterException
+      public LinkedHashMap<String, List<String>> getTweets (String hashtag) throws TwitterException
       {
-         LinkedHashMap<String, ArrayList<String>> tweets = new LinkedHashMap<String, ArrayList<String>>();
-         
-         if (TWITTER_CONSUMER_KEY.equals("*****")) {
-            return getMockTweet(); // If correct keys are not present, creates mock tweet
+         LinkedHashMap<String, List<String>> tweets = new LinkedHashMap<String, List<String>>();
+         List<String> usernames = new ArrayList<String>();
+         List<String> messages = new ArrayList<String>();
+         List<String> retweetCounts = new ArrayList<String>();
+         List<String> favCounts = new ArrayList<String>();
+
+         // If correct keys are not present, creates mock tweet
+         if (TWITTER_CONSUMER_KEY.equals("***")) {
+            return getMockTweet(tweets, usernames, messages, retweetCounts, favCounts); 
          } else {
             Query query = new Query(hashtag);
             query.setSince("2016-12-1");
@@ -96,11 +67,6 @@ public class TwitterBot {
 
             try {
                QueryResult result = twitter.search(query);
-               ArrayList<String> usernames = new ArrayList<String>();
-               ArrayList<String> messages = new ArrayList<String>();
-               ArrayList<String> retweetCounts = new ArrayList<String>();
-               ArrayList<String> favCounts = new ArrayList<String>();
-
                for (Status tweet : result.getTweets()) {
                   usernames.add(tweet.getUser().getName());
                   messages.add(tweet.getText());
@@ -120,6 +86,43 @@ public class TwitterBot {
                return null;
             }
          }
+      }
+
+
+      // Creates Twitter API keys
+      public void createKeys() {
+         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Setting");
+         Key key = keyFactory.newKey(5634161670881280L);       
+         Entity entity = datastore.get(key);
+         
+         TWITTER_CONSUMER_KEY = entity.getString("TWITTER_CONSUMER_KEY");
+         TWITTER_CONSUMER_SECRET = entity.getString("TWITTER_CONSUMER_SECRET");
+         TWITTER_ACCESS_TOKEN = entity.getString("TWITTER_ACCESS_TOKEN");
+         TWITTER_ACCESS_TOKEN_SECRET = entity.getString("TWITTER_ACCESS_TOKEN_SECRET");
+      }
+      
+
+      // Creates Mock tweet 
+      public LinkedHashMap<String, List<String>> getMockTweet(
+         LinkedHashMap<String, List<String>> tweets, List<String> usernames, 
+         List<String> messages, List<String> retweetCounts, List<String> favCounts) {         
+
+         usernames.add("John Smith");
+         messages.add("This is a tweet message!");
+         retweetCounts.add("35");
+         favCounts.add("209");
+         usernames.add("Sally Smith");
+         messages.add("Seashells by the seashore");
+         retweetCounts.add("8000");
+         favCounts.add("10000");
+
+         tweets.put("usernames", usernames);
+         tweets.put("messages", messages);
+         tweets.put("retweetCounts", retweetCounts);
+         tweets.put("favCounts", favCounts);
+
+         return tweets;
       }
    
    }  
