@@ -38,11 +38,19 @@
  </body>
 </html> -->
 
-Movement name:
-<input type="text" id="movementname">
-<br>
-<p>The name of the movementis: <b id='movementid'></b>
-</p>
-<p>Other movements:</p>
-<ol id="movement"></ol>
-<input type='button' onclick='createMovementElement()' value='Submit' /> 
+  <body onload="loadMovements()">
+    <h1>Movement List</h1>
+
+    <form method="POST" action="/new-movement">
+      <input type="text" name="title" />
+      <br/>
+      <button>Submit</button>
+    </form>
+
+    <hr/>
+
+    <ul id="movement-list"></ul>
+
+
+
+ 
