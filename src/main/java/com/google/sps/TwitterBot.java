@@ -46,6 +46,20 @@ public class TwitterBot {
       }   
 
 
+      // Creates Twitter API keys
+      public void createKeys() {
+         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Setting");
+         Key key = keyFactory.newKey(5634161670881280L);       
+         Entity entity = datastore.get(key);
+         
+         TWITTER_CONSUMER_KEY = entity.getString("TWITTER_CONSUMER_KEY");
+         TWITTER_CONSUMER_SECRET = entity.getString("TWITTER_CONSUMER_SECRET");
+         TWITTER_ACCESS_TOKEN = entity.getString("TWITTER_ACCESS_TOKEN");
+         TWITTER_ACCESS_TOKEN_SECRET = entity.getString("TWITTER_ACCESS_TOKEN_SECRET");
+      }
+
+
       // Returns the most popular tweets with the hashtag
       public LinkedHashMap<String, List<String>> getTweets (String hashtag) throws TwitterException
       {
@@ -87,20 +101,6 @@ public class TwitterBot {
             }
          }
       }
-
-
-      // Creates Twitter API keys
-      public void createKeys() {
-         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Setting");
-         Key key = keyFactory.newKey(5634161670881280L);       
-         Entity entity = datastore.get(key);
-         
-         TWITTER_CONSUMER_KEY = entity.getString("TWITTER_CONSUMER_KEY");
-         TWITTER_CONSUMER_SECRET = entity.getString("TWITTER_CONSUMER_SECRET");
-         TWITTER_ACCESS_TOKEN = entity.getString("TWITTER_ACCESS_TOKEN");
-         TWITTER_ACCESS_TOKEN_SECRET = entity.getString("TWITTER_ACCESS_TOKEN_SECRET");
-      }
       
 
       // Creates Mock tweet 
@@ -126,4 +126,4 @@ public class TwitterBot {
       }
    
    }  
-   
+
