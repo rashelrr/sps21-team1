@@ -20,6 +20,12 @@
   </properties>
 
   <dependencies>
+    <!-- Jsoup -->
+    <dependency>
+      <groupId>org.jsoup</groupId>
+      <artifactId>jsoup</artifactId>
+      <version>1.13.1</version>
+    </dependency>
     <!-- Twitter4j Library -->
     <dependency>
       <groupId>org.twitter4j</groupId>
@@ -55,12 +61,6 @@
     <artifactId>google-cloud-datastore</artifactId>
     <version>1.106.0</version>
    </dependency>
-   <!-- jsoup -->
-   <dependency>
-    <groupId>org.jsoup</groupId>
-    <artifactId>jsoup</artifactId>
-    <version>1.13.1</version>
-  </dependency>
   </dependencies>
 
   <build>
