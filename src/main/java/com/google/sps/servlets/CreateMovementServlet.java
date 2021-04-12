@@ -15,9 +15,11 @@ import org.jsoup.safety.Whitelist;
 
 /** Saves input by user into datastore */
 @WebServlet("/form-handler")
-public class FormHandlerServlet extends HttpServlet {
+public class CreateMovementServlet extends HttpServlet {
 
   static final long serialVersionUID = 0;
+  static Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+  static KeyFactory keyFactory = datastore.newKeyFactory().setKind("Movement");
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -26,11 +28,13 @@ public class FormHandlerServlet extends HttpServlet {
     String hashtag = Jsoup.clean(request.getParameter("hashtag"), Whitelist.none());
     String video = Jsoup.clean(request.getParameter("video"), Whitelist.none());
     String image = Jsoup.clean(request.getParameter("image"), Whitelist.none());
+    String donation = Jsoup.clean(request.getParameter("donation"), Whitelist.none());
     String resources = Jsoup.clean(request.getParameter("resources"), Whitelist.none());
     
-    Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-    KeyFactory keyFactory = datastore.newKeyFactory().setKind("MovementByUser");
-    
+    // removes '#'
+    if (!hashtag.isEmpty())
+      hashtag = hashtag.substring(1);
+
     FullEntity movementEntity =
         Entity.newBuilder(keyFactory.newKey())
             .set("name", name)
@@ -38,10 +42,13 @@ public class FormHandlerServlet extends HttpServlet {
             .set("hashtag", hashtag)
             .set("video", video)
             .set("image", image)
-            .set("resources", resources)
+            .set("donation", donation) 
+            .set("resources", resources) 
             .build();
     datastore.put(movementEntity);
 
+    // TODO : redirect to movement.html # URL: appengine.com/movement?=<HASHTAG> ex:  appengine.com/movement?=BLM (im not sure if pound sign is allowed)
+    // "https://spring21-sps-1.uc.r.appspot.com/movement?=" + hashtag
     response.sendRedirect("/index.html");
   } 
 
