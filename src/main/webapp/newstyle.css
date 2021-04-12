@@ -4,41 +4,69 @@
   color: black;
 }
 
+/* This is the CSS for #LGTBQ+ */
 .bottom-left {
   position: absolute;
-  bottom: 8px;
-  left: 16px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-40%, -40%);
 }
 
+/* This is the CSS for #MeToo */
 .top-left {
   position: absolute;
-  top: 8px;
-  left: 16px;
+  top: 30%;
+  left: 40%;
+  transform: translate(-40%, -40%);
 }
 
+/* This is the CSS for #BlackLivesMatter */
 .top-right {
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 45%;
+  left: 40%;
+  transform: translate(-40%, -40%);
 }
 
+/* This is the CSS for #StopAsianHate */
 .bottom-right {
   position: absolute;
-  bottom: 8px;
-  right: 16px;
-}
-
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 40%;
+  left: 30%;
   transform: translate(-50%, -50%);
 }
-/* This is the CSS for the social movemtn header*/
-.socialmovementheader {
+
+/* This is the CSS for #mentalhealth */
+.bottom-center {
   position: absolute;
+  top: 35%;
+  left: 33%;
+  transform: translate(-50%, -50%);
+}
+
+/* This is the CSS for #GunControl */
+.top-center {
+  position: absolute;
+  top: 35%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+}
+
+/* This is the CSS for the #socialmovement  */
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-40%, -40%);
+}
+
+/* This is the CSS for the social movement header */
+.socialmovementheader {
+  position: relative;
   text-align: center;
   color: black;
+  font-size: 150%;
+  top: 0;
 }
 
 /* This is the CSS for the track a movement box */
@@ -47,5 +75,5 @@
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid red ;
+  border: 1px solid red;
 }
