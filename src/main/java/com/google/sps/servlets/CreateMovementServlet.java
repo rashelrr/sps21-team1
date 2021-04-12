@@ -47,9 +47,8 @@ public class CreateMovementServlet extends HttpServlet {
             .build();
     datastore.put(movementEntity);
 
-    // TODO : redirect to movement.html # URL: appengine.com/movement?=<HASHTAG> ex:  appengine.com/movement?=BLM (im not sure if pound sign is allowed)
-    // "https://spring21-sps-1.uc.r.appspot.com/movement?=" + hashtag
-    response.sendRedirect("/index.html");
+    // response.sendRedirect("/index.html");
+    response.sendRedirect("https://spring21-sps-1.uc.r.appspot.com/movement?=" + hashtag);
   } 
 
 }
