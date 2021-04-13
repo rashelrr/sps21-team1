@@ -29,6 +29,8 @@ public class GetMovementServlet extends HttpServlet {
 
     //** not sure if this is right
     String hashtag = request.getParameter("hashtag");
+    if (!hashtag.isEmpty() && hashtag.charAt(0) == '#')
+      hashtag = hashtag.substring(1);
 
     // Query finds entity (movement) that contains the specified hashtag
     Query<Entity> query =

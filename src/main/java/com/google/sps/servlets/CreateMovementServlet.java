@@ -32,7 +32,7 @@ public class CreateMovementServlet extends HttpServlet {
     String resources = Jsoup.clean(request.getParameter("resources"), Whitelist.none());
     
     // removes '#'
-    if (!hashtag.isEmpty())
+    if (!hashtag.isEmpty() && hashtag.charAt(0) == '#')
       hashtag = hashtag.substring(1);
 
     FullEntity movementEntity =
