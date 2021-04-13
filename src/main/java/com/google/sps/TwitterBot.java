@@ -43,7 +43,7 @@ public class TwitterBot {
          TwitterFactory tf = new TwitterFactory(cb.build());
          twitter = tf.getInstance();
 
-      }
+      }   
 
 
       // Returns the most popular tweets with the hashtag
@@ -87,7 +87,7 @@ public class TwitterBot {
             }
          }
       }
-      
+
 
       // Creates Twitter API keys
       public void createKeys() {
@@ -101,7 +101,7 @@ public class TwitterBot {
          TWITTER_ACCESS_TOKEN = entity.getString("TWITTER_ACCESS_TOKEN");
          TWITTER_ACCESS_TOKEN_SECRET = entity.getString("TWITTER_ACCESS_TOKEN_SECRET");
       }
-
+      
 
       // Creates Mock tweet 
       public LinkedHashMap<String, List<String>> getMockTweet(
