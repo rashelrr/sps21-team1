@@ -43,20 +43,6 @@ public class TwitterBot {
          TwitterFactory tf = new TwitterFactory(cb.build());
          twitter = tf.getInstance();
 
-      }   
-
-
-      // Creates Twitter API keys
-      public void createKeys() {
-         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Setting");
-         Key key = keyFactory.newKey(5634161670881280L);       
-         Entity entity = datastore.get(key);
-         
-         TWITTER_CONSUMER_KEY = entity.getString("TWITTER_CONSUMER_KEY");
-         TWITTER_CONSUMER_SECRET = entity.getString("TWITTER_CONSUMER_SECRET");
-         TWITTER_ACCESS_TOKEN = entity.getString("TWITTER_ACCESS_TOKEN");
-         TWITTER_ACCESS_TOKEN_SECRET = entity.getString("TWITTER_ACCESS_TOKEN_SECRET");
       }
 
 
@@ -103,6 +89,20 @@ public class TwitterBot {
       }
       
 
+      // Creates Twitter API keys
+      public void createKeys() {
+         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Setting");
+         Key key = keyFactory.newKey(5634161670881280L);       
+         Entity entity = datastore.get(key);
+         
+         TWITTER_CONSUMER_KEY = entity.getString("TWITTER_CONSUMER_KEY");
+         TWITTER_CONSUMER_SECRET = entity.getString("TWITTER_CONSUMER_SECRET");
+         TWITTER_ACCESS_TOKEN = entity.getString("TWITTER_ACCESS_TOKEN");
+         TWITTER_ACCESS_TOKEN_SECRET = entity.getString("TWITTER_ACCESS_TOKEN_SECRET");
+      }
+
+
       // Creates Mock tweet 
       public LinkedHashMap<String, List<String>> getMockTweet(
          LinkedHashMap<String, List<String>> tweets, List<String> usernames, 
@@ -126,4 +126,3 @@ public class TwitterBot {
       }
    
    }  
-
