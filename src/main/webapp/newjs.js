@@ -14,5 +14,6 @@ function createMovementElement(movement) {
 
   const titleElement = document.createElement('span');
   titleElement.innerText = movement;
+  return movement;
 }
 
