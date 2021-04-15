@@ -47,8 +47,8 @@ public class CreateMovementServlet extends HttpServlet {
             .build();
     datastore.put(movementEntity);
 
-    // response.sendRedirect("/index.html");
-    response.sendRedirect("https://spring21-sps-1.uc.r.appspot.com/movement?=" + hashtag);
+    response.sendRedirect("/index.html");
+    //response.sendRedirect("https://spring21-sps-1.uc.r.appspot.com/movement?=" + hashtag);
   } 
 
 }
