@@ -14,5 +14,12 @@ function createMovementElement(movement) {
 
   const titleElement = document.createElement('span');
   titleElement.innerText = movement;
+
+  movementElement.appendChild(titleElement);
+  return movementElement;
 }
+
+
+
+
 
