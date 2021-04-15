@@ -1,6 +1,6 @@
 /** Fetches movement hashtags from the server and adds them to the DOM. */
 function loadMovements() {
-  fetch('/get-hashtag').then(response => response.json()).then((movements) => {
+  fetch('/get-hashtags').then(response => response.json()).then((movements) => {
     const movementListElement = document.getElementById('movement-list');
     movements.forEach((movement) => {
       movementListElement.appendChild(createMovementElement(movement));
