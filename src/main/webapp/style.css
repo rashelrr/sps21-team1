@@ -221,3 +221,19 @@ li a:hover {
 a:any-link {
    color:white;
 }
+
+#movement-list {
+  list-style-type: none;
+}
+
+#movement-list li {
+  border: thin solid black;
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  width: 100px;
+}
+
+#movement-list li span {
+  flex-grow: 1;
+}
