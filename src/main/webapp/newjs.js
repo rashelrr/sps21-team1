@@ -11,10 +11,13 @@ function loadMovements() {
 /** Creates an element that represents a task, including its delete button. */
 function createMovementElement(movement) {
   const movementElement = document.createElement('li');
+  const linebreak = document.createElement('br');
 
   const titleElement = document.createElement('span');
   titleElement.innerText = movement;
 
+  
+  movementElement.appendChild(linebreak);
   movementElement.appendChild(titleElement);
   return movementElement;
 }
