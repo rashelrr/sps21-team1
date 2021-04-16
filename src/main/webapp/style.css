@@ -226,14 +226,14 @@ a:any-link {
   list-style-type: none;
 }
 
-li {
+#movement-list li {
   border: thin solid black;
   display: flex;
   margin: 10px;
   padding: 10px;
-  width: 300px;
+  width: 100px;
 }
 
-li span {
+#movement-list li span {
   flex-grow: 1;
 }
