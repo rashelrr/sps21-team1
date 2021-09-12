@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+// HW 0 : This is a comment.
+
 /** Handles requests sent to the /twitter-bot URL **/
 @WebServlet("/twitter-bot")
 public class TwitterBotServlet extends HttpServlet {
