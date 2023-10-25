@@ -1,5 +1,5 @@
 # About
-Project: Social Movement Tracker
+Project: Social Movement Tracker<br>
 Program: Google Software Product Sprint
 
 Created a web application that serves as a community-made resource guide on current social movements. 
